@@ -1,3 +1,4 @@
+import CircularProgress from "@material-ui/core/CircularProgress";
 import React, { useEffect, useState } from "react";
 import ApiService from "../api/ApiService";
 import ResponceData from "../util/DataModel";
@@ -15,7 +16,17 @@ function Home() {
         
     }, []);
     return (
-        <NewsCard news={headlines}/>
+      <div>
+            {/* <SearchBar/> */}
+            { (headlines?.length === 0) ? (
+                <div style={{position:"relative",left:"600px",top:"400px"}}>
+                 <CircularProgress value={50} />
+            </div>
+                
+            ):(
+              <NewsCard news={headlines}/>
+            ) }
+        </div>
     )
 }
 

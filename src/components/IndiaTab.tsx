@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../css/IndiaTab.css'
+import CircularProgress from '@material-ui/core/CircularProgress';
 import ResponceData from '../util/DataModel';
 import SearchBar from './SearchBar';
 import NewsCard from './NewsCard';
@@ -27,8 +28,16 @@ function IndiaTab() {
     console.log(headlines)
     return (
         <div>
-            <SearchBar/>
-            <NewsCard news={headlines}/>
+            {/* <SearchBar/> */}
+            { (headlines?.length === 0) ? (
+               
+                <div style={{position:"relative",left:"600px",top:"400px"}}>
+                 <CircularProgress value={50} />
+            </div>
+                
+            ):(
+                <NewsCard news={headlines}/>
+            ) }
         </div>
     )
 }

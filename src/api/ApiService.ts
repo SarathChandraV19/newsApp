@@ -1,3 +1,4 @@
+import axios from "axios";
 import { fromFetch } from "rxjs/fetch";
 import NewsModels from "../util/NewsModel";
 
@@ -20,5 +21,13 @@ export default class ApiService {
         //     let body = new NewsModels(resp);
         //     callback(body);
         // });
+    }
+    getCoronaNews(url:string, callback:(resp:any) => any ){
+        fromFetch(url)
+            .subscribe(response =>
+                response.json().then(resp => { 
+                    callback(resp);
+                })
+            );
     }
 }
