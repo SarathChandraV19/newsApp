@@ -1,7 +1,7 @@
 import CircularProgress from "@material-ui/core/CircularProgress";
 import React, { useEffect, useState } from "react";
 import ApiService from "../api/ApiService";
-import ResponceData from "../util/DataModel";
+import {ResponceData} from "../util/DataModel";
 import NewsModels from "../util/NewsModel";
 import NewsCard from "./NewsCard";
 

@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import IndiaTab from "./components/IndiaTab";
 import Corona from './components/Corona';
+import CoronaV2 from './components/CoronaV2';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Header/>
         <Route exact path="/" component={Home} />
-        <Route path="/corona" component={Corona} />
+        <Route path="/corona" component={CoronaV2} />
         <Route exact path="/indiatab" component={IndiaTab} />
         
       </BrowserRouter>

@@ -1,4 +1,4 @@
-interface ResponceData {
+export interface ResponceData {
         source?: {
             id: string,
             name: string
@@ -18,4 +18,8 @@ interface ResponceData {
         published_at?: string
 }
 
-export default ResponceData
+export  interface formInputModel {
+    country:string,
+    fromDate:string,
+    toDate:string
+}

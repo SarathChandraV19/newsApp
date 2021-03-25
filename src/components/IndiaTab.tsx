@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../css/IndiaTab.css'
 import CircularProgress from '@material-ui/core/CircularProgress';
-import ResponceData from '../util/DataModel';
-import SearchBar from './SearchBar';
+import {ResponceData} from '../util/DataModel';
 import NewsCard from './NewsCard';
 import ApiService from '../api/ApiService';
 import NewsModels from '../util/NewsModel';
-
-
-
 
 function Url(i: number) {
     const url = 'https://newsapi.org/v2/top-headlines?country=in&pageSize=3&apiKey=288f7fa71b5a4781a23a59a3f82a80fa';
@@ -25,16 +21,12 @@ function IndiaTab() {
         
     }, []);
 
-    console.log(headlines)
     return (
         <div>
-            {/* <SearchBar/> */}
             { (headlines?.length === 0) ? (
-               
                 <div style={{position:"relative",left:"600px",top:"400px"}}>
                  <CircularProgress value={50} />
             </div>
-                
             ):(
                 <NewsCard news={headlines}/>
             ) }

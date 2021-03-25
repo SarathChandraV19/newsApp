@@ -1,4 +1,4 @@
-import ResponceData from "./DataModel";
+import {ResponceData} from "./DataModel";
 
 export default class NewsModels{
     responce?: ResponceData[];

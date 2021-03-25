@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button, TextField } from '@material-ui/core';
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';;
-
+import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -25,6 +24,7 @@ const SearchBar = (props: any) => {
     function handleOnClick(e:any) {
         e.preventDefault();
         props.getInputData(inputValues)
+       // props.fetchCoronaNews('',inputValues);
     }
     return (
              <form className={classes.formRoot} noValidate autoComplete="off">

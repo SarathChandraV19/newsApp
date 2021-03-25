@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, Button } from "@material-ui/core"
-import ResponceData from '../util/DataModel';
+import {ResponceData} from '../util/DataModel';
 
 const useStyles = makeStyles({
     containerRoot: {

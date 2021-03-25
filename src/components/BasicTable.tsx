@@ -36,7 +36,7 @@ function BasicTable (props: any) {
                                 <TableCell align="right">{row.Confirmed}</TableCell>
                                 <TableCell align="right">{row.Deaths}</TableCell>
                                 <TableCell align="right">{row.Recovered}</TableCell>
-                                <TableCell align="right">{row.Date.slice(0,10)}</TableCell>
+                                <TableCell align="right">{row.Date}</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
