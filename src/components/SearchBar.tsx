@@ -21,10 +21,10 @@ const initialvalues = {
 const SearchBar = (props: any) => {
     const classes = useStyles();
     const [inputValues, setInputValues] = useState(initialvalues);
+    console.log(inputValues)
     function handleOnClick(e:any) {
-        e.preventDefault();
+       // e.preventDefault();
         props.getInputData(inputValues)
-       // props.fetchCoronaNews('',inputValues);
     }
     return (
              <form className={classes.formRoot} noValidate autoComplete="off">

@@ -1,45 +1,44 @@
 import { CircularProgress } from '@material-ui/core';
-import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCoronaNews } from '../actions';
 import { INITIAL_FORM_VALUES } from '../util/Constants';
 import { formInputModel } from '../util/DataModel';
 import BasicTable from './BasicTable';
 import SearchBar from './SearchBar';
+import { useState,useEffect } from 'react';
 
-class CoronaV2 extends React.Component<any> {
-    state = {formInputValues:INITIAL_FORM_VALUES};
-    
-    componentDidMount() {
-        this.props.fetchCoronaNews(INITIAL_FORM_VALUES);
-    }
-    handleGetInputData = (inputData:formInputModel) => {
-        this.setState({formInputValues: inputData})
-        this.props.fetchCoronaNews(this.state.formInputValues);
-    }
-    render() {
-        return (
+const CoronaV2 = (props: any) => {
+    const [formInputValues, setFormInputValues] = useState(INITIAL_FORM_VALUES);
+    useEffect(() => {
+        props.fetchCoronaNews(formInputValues);
+        return () => {
+
+        }
+    }, [formInputValues]);
+    const handleGetInputData = (inputData:formInputModel) => {
+               console.log(inputData)
+               setFormInputValues(inputData)
+            }
+    return (
+        <div>
+            <SearchBar getInputData={handleGetInputData} />
             <div>
-                <SearchBar getInputData={this.handleGetInputData} />
-                <div>
-                    {(this.props.news.fetchSuccess.length === 0) ? (
-                        <div style={{ position: "relative", left: "600px", top: "400px" }}>
-                            <CircularProgress value={50} />
-                        </div>
-                    ) : (
-                        <div>
-                            <BasicTable tableData={this.props.news.fetchSuccess} />
-                        </div>
-                    )}
-                </div>
-
+                {(props.news.fetchSuccess.length === 0) ? (
+                    <div style={{ position: "relative", left: "600px", top: "400px" }}>
+                        <CircularProgress value={50} />
+                    </div>
+                ) : (
+                    <div>
+                        <BasicTable tableData={props.news.fetchSuccess} />
+                    </div>
+                )}
             </div>
-        )
-    }
-};
+        </div>
+    )
+}
 
 const mapStateToProps = (state: any) => {
-    console.log(state);
+    //console.log(state);
     return { news: state };
 }
 

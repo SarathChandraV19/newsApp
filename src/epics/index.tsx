@@ -23,13 +23,3 @@ export const coronaNewsEpic = (actions$:any) => actions$.pipe(
     }),
   );
 
-  // const formInputEpic = (action$:any) => action$.pipe(
-//     ofType('FETCH_FORM_INPUTS'),
-    
-//     map(action$ => console.log(action$)),
-// )https://api.covid19api.com/live/country/${action.formInputs.countrty}/status/confirmed?from=${action.formInputs.fromDate}T00:00:00Z&to=${action.formInputs.toDate}T00:00:00Z`
-
-// export default combineEpics (
-//     formInputEpic,
-//     coronaNewsEpic
-//   );
